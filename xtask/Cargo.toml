@@ -7,3 +7,5 @@ default-run = "xtask"
 
 [dependencies]
 parser-rs.workspace = true
+serde_json.workspace = true
+clap = { version = "4", features = ["derive"] }

@@ -33,11 +33,9 @@ fn run() -> Result<(), String> {
             format(all)
         }
         Some("dev") => {
-            let path = args.next().ok_or("usage: cargo xtask dev <path/to/file>")?;
-            no_extra_args(args)?;
             let mut cmd = command("cargo");
             cmd.args(["run", "--package", "xtask", "--bin", "dev", "--"])
-                .arg(path);
+                .args(args);
             run_command(cmd, "dev")
         }
         Some("help" | "--help" | "-h") => {
@@ -46,7 +44,8 @@ fn run() -> Result<(), String> {
                 "cargo xtask doctor             Check repo, toolchain, formatting, and build\n\
                  cargo xtask fmt                Format staged, unstaged, and untracked Rust files\n\
                  cargo xtask fmt --all          Format all workspace crates\n\
-                 cargo xtask dev <path/to/file> Run the placeholder file CLI"
+                 cargo xtask dev <path> --to <end> --output <directory> [--from <start>] [--jump <ms>]\n\
+                 cargo xtask dev --tools       Print the PDF and video tool definitions"
             );
             Ok(())
         }
@@ -104,6 +103,7 @@ fn doctor() -> Result<(), String> {
         "parser-rs/Cargo.toml",
         "crates/parser-pdf/Cargo.toml",
         "crates/parser-vid/Cargo.toml",
+        "crates/parser-common/Cargo.toml",
     ] {
         if repo_root().join(path).is_file() {
             println!("[ok] {path}");
@@ -123,6 +123,8 @@ fn doctor() -> Result<(), String> {
         ("Cargo", "cargo", &["--version"]),
         ("Rustfmt", "rustfmt", &["--version"]),
         ("Clippy", "cargo", &["clippy", "--version"]),
+        ("FFmpeg", "ffmpeg", &["-version"]),
+        ("FFprobe", "ffprobe", &["-version"]),
         (
             "Workspace formatting",
             "cargo",

@@ -1,0 +1,5 @@
+[package]
+name = "parser-pdf"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true

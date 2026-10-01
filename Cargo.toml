@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "parser-rs",
+    "crates/parser-pdf",
+    "crates/parser-aud",
+    "crates/parser-vid",
+]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace.dependencies]
+parser-rs = { path = "parser-rs" }
+parser-pdf = { path = "crates/parser-pdf" }
+parser-aud = { path = "crates/parser-aud" }
+parser-vid = { path = "crates/parser-vid" }

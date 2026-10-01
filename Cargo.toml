@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "xtask",
     "parser-rs",
     "crates/parser-pdf",
     "crates/parser-aud",

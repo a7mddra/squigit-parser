@@ -3,10 +3,6 @@
 version = 4
 
 [[package]]
-name = "parser-aud"
-version = "0.1.0"
-
-[[package]]
 name = "parser-pdf"
 version = "0.1.0"
 
@@ -14,7 +10,6 @@ version = "0.1.0"
 name = "parser-rs"
 version = "0.1.0"
 dependencies = [
- "parser-aud",
  "parser-pdf",
  "parser-vid",
 ]

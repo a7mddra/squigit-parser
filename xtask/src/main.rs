@@ -103,7 +103,6 @@ fn doctor() -> Result<(), String> {
         "xtask/Cargo.toml",
         "parser-rs/Cargo.toml",
         "crates/parser-pdf/Cargo.toml",
-        "crates/parser-aud/Cargo.toml",
         "crates/parser-vid/Cargo.toml",
     ] {
         if repo_root().join(path).is_file() {

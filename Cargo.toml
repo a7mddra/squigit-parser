@@ -3,7 +3,6 @@ members = [
     "xtask",
     "parser-rs",
     "crates/parser-pdf",
-    "crates/parser-aud",
     "crates/parser-vid",
 ]
 resolver = "3"
@@ -16,5 +15,4 @@ publish = false
 [workspace.dependencies]
 parser-rs = { path = "parser-rs" }
 parser-pdf = { path = "crates/parser-pdf" }
-parser-aud = { path = "crates/parser-aud" }
 parser-vid = { path = "crates/parser-vid" }

@@ -1,6 +1,6 @@
 # squigit-parser
 
-A Rust workspace with placeholder document, audio, and video parsers. The dev
+A Rust workspace with placeholder PDF, Microsoft Office, and video parsers. The dev
 CLI routes by file extension and prints a category. It does not open or parse
 files, so the supplied path does not need to exist yet.
 
@@ -8,7 +8,6 @@ files, so the supplied path does not need to exist yet.
 
 - `parser-rs/`: facade that routes paths to the appropriate crate.
 - `crates/parser-pdf/`: PDF and Microsoft Office placeholders.
-- `crates/parser-aud/`: audio placeholder.
 - `crates/parser-vid/`: video placeholder.
 - `xtask/`: repository tasks and the `dev` CLI.
 - `.cargo/config.toml`: the `cargo xtask` alias.
@@ -43,7 +42,6 @@ cargo run --package xtask --bin dev -- "path/to/my document.docx"
 | File category | Examples | Output |
 | --- | --- | --- |
 | PDF / Microsoft Office | `.pdf`, `.docx`, `.pptx`, `.xlsx` | `this is a doc file` |
-| Audio | `.mp3`, `.wav`, `.flac`, `.m4a` | `this is a aud file` |
 | Video | `.mov`, `.mp4`, `.mkv`, `.webm` | `this is a vid file` |
 
 Extensions are case-insensitive. The complete extension lists are in

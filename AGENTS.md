@@ -3,11 +3,11 @@
 ## Project Structure & Module Organization
 
 `squigit-parser` is a Rust workspace. `parser-rs/` is the public facade;
-`crates/parser-pdf/`, `crates/parser-aud/`, and `crates/parser-vid/` contain
-category-specific placeholders. Each library lives in its crate's `src/lib.rs`.
+`crates/parser-pdf/` and `crates/parser-vid/` contain placeholders for PDF and
+Microsoft Office documents, and video. Each library lives in its crate's `src/lib.rs`.
 `xtask/src/main.rs` implements repository tasks, and `xtask/src/bin/dev.rs` is
 the development CLI. `.cargo/config.toml` defines the Cargo alias; `rust-toolchain.toml`
-selects stable Rust with Rustfmt and Clippy. No tests or assets exist yet.
+selects stable Rust with Rustfmt and Clippy. No test suite is configured.
 
 ## Build, Test, and Development Commands
 

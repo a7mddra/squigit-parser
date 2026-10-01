@@ -32,12 +32,21 @@ fn run() -> Result<(), String> {
             no_extra_args(args)?;
             format(all)
         }
+        Some("dev") => {
+            let path = args.next().ok_or("usage: cargo xtask dev <path/to/file>")?;
+            no_extra_args(args)?;
+            let mut cmd = command("cargo");
+            cmd.args(["run", "--package", "xtask", "--bin", "dev", "--"])
+                .arg(path);
+            run_command(cmd, "dev")
+        }
         Some("help" | "--help" | "-h") => {
             no_extra_args(args)?;
             println!(
                 "cargo xtask doctor             Check repo, toolchain, formatting, and build\n\
                  cargo xtask fmt                Format staged, unstaged, and untracked Rust files\n\
-                 cargo xtask fmt --all          Format all workspace crates"
+                 cargo xtask fmt --all          Format all workspace crates\n\
+                 cargo xtask dev <path/to/file> Run the placeholder file CLI"
             );
             Ok(())
         }
